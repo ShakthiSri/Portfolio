@@ -60,18 +60,18 @@ export default function Contact() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#a855f7]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10">
         {/* Heading */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 relative ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 relative ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
             LET'S WORK
           </h2>
           <p
-            className="text-[#8b5cf6] text-6xl md:text-6xl absolute top-3/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-6"
+            className="text-[#8b5cf6] text-3xl sm:text-4xl md:text-5xl absolute top-1/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-6"
             style={{ 
               fontFamily: "'Caveat', cursive",
               fontWeight: "600"
@@ -84,12 +84,12 @@ export default function Contact() {
         {/* Contact Content */}
         <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Horizontal line */}
-          <div className="border-t border-gray-700 mb-12"></div>
+          <div className="border-t border-gray-700 mb-8 sm:mb-12"></div>
 
           {/* Contact details and circular button */}
-          <div className="flex items-start justify-between gap-16">
-            {/* Left: Social Media Links - 2 Column Grid */}
-            <div className="grid grid-cols-2 gap-x-12 gap-y-6 flex-1">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-16">
+            {/* Left: Social Media Links - 2 Column Grid on desktop, 1 on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-4 sm:gap-y-6 flex-1 w-full">
               {/* Email/Gmail */}
               <a
                 href="mailto:shakthisripackianathan@gmail.com"
@@ -181,10 +181,10 @@ export default function Contact() {
             </div>
 
             {/* Right: Circular Get in touch button */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 mx-auto lg:mx-0">
               <button
                 onClick={() => window.open('https://www.linkedin.com/in/shakthi-sri-p/', '_blank')}
-                className="group relative w-40 h-40 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-[#8b5cf6] via-[#9333ea] to-[#a855f7] hover:scale-105 transition-all duration-700 flex items-center justify-center shadow-[0_20px_60px_rgba(139,92,246,0.4)] hover:shadow-[0_25px_80px_rgba(139,92,246,0.6)] cursor-pointer"
+                className="group relative w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-[#8b5cf6] via-[#9333ea] to-[#a855f7] hover:scale-105 transition-all duration-700 flex items-center justify-center shadow-[0_20px_60px_rgba(139,92,246,0.4)] hover:shadow-[0_25px_80px_rgba(139,92,246,0.6)] cursor-pointer"
               >
                 {/* Inner circle with text */}
                 <div className="absolute inset-2 rounded-full bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
@@ -215,39 +215,39 @@ export default function Contact() {
         </div>
 
         {/* Footer integrated */}
-        <div className="border-t border-gray-700 mt-20 pt-8 pb-8">
-          <div className="grid grid-cols-3 items-center gap-8">
+        <div className="border-t border-gray-700 mt-12 sm:mt-20 pt-6 sm:pt-8 pb-6 sm:pb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-6 sm:gap-8">
             {/* Left: Copyright */}
-            <div className="justify-self-start">
-              <p className="text-gray-100 text-sm font-light">
+            <div className="justify-self-center sm:justify-self-start text-center sm:text-left">
+              <p className="text-gray-100 text-xs sm:text-sm font-light">
                 © 2025 Shakthi Sri
               </p>
-              <p className="text-gray-100 text-xs mt-15">
+              <p className="text-gray-100 text-xs mt-1">
                 All rights reserved
               </p>
             </div>
 
             {/* Center: Logo */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center order-first sm:order-none">
               <div className="relative group">
                 <div className="absolute inset-0 bg-[#8b5cf6] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                 <img
                   src="/profile.png"
                   alt="Logo"
-                  className="w-25 h-10 object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
+                  className="w-16 h-8 sm:w-20 sm:h-10 object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
             </div>
 
             {/* Right: Back to top */}
-            <div className="flex justify-end">
+            <div className="flex justify-center sm:justify-end">
               <button
                 onClick={scrollToTop}
-                className="group flex items-center gap-3 text-gray-200 hover:text-[#8b5cf6] transition-all duration-300 text-sm"
+                className="group flex items-center gap-2 sm:gap-3 text-gray-200 hover:text-[#8b5cf6] transition-all duration-300 text-xs sm:text-sm"
               >
                 <span className="font-bold">Back to top</span>
-                <div className="w-10 h-10 rounded-full border border-gray-200 group-hover:border-[#8b5cf6] flex items-center justify-center group-hover:bg-[#8b5cf6]/10 transition-all duration-300">
-                  <svg className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 group-hover:border-[#8b5cf6] flex items-center justify-center group-hover:bg-[#8b5cf6]/10 transition-all duration-300">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-y-0.5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>

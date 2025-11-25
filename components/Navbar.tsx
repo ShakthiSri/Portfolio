@@ -1,5 +1,6 @@
 'use client';
 
+import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Navbar() {
@@ -7,6 +8,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [isModalClosing, setIsModalClosing] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,7 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false); // Close mobile menu on navigation
     if (id === 'home') {
       // Scroll to top for home section
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -67,7 +70,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+      {/* Desktop Navbar */}
+      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
         <div className="flex items-center justify-center bg-black/30 backdrop-blur-xl px-8 py-4 rounded-2xl border border-[#8b5cf6]/30 shadow-2xl shadow-[#8b5cf6]/20 min-w-[600px] gap-12">
           {/* Left Navigation */}
           <button
@@ -154,6 +158,42 @@ export default function Navbar() {
             ></span>
           </button>
         </div>
+      </nav>
+
+      {/* Mobile Navbar */}
+      <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
+        <div className="flex items-center justify-between bg-black/30 backdrop-blur-xl px-6 py-3 rounded-2xl border border-[#8b5cf6]/30 shadow-2xl shadow-[#8b5cf6]/20">
+          <button onClick={openModal} className="flex items-center gap-2">
+            <img src="/profile.png" alt="Profile" className="w-8 h-8 object-contain" />
+            <span className="text-white text-sm font-semibold">Portfolio</span>
+          </button>
+          
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-gray-300 hover:text-[#8b5cf6] transition-colors"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="mt-2 bg-black/30 backdrop-blur-xl rounded-2xl border border-[#8b5cf6]/30 shadow-2xl shadow-[#8b5cf6]/20 overflow-hidden">
+            {['home', 'about', 'projects', 'contact'].map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`w-full text-left px-6 py-4 transition-all duration-300 ${
+                  activeSection === section
+                    ? 'text-[#8b5cf6] bg-[#8b5cf6]/10'
+                    : 'text-gray-300 hover:text-[#8b5cf6] hover:bg-[#8b5cf6]/5'
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Profile Modal */}

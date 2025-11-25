@@ -70,65 +70,65 @@ export default function Hero() {
         <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-white/10 rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         <div
-          className={`space-y-6 transition-all duration-1000 ${
+          className={`space-y-4 sm:space-y-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           <h1 className="text-white font-bold leading-tight">
-            <span className="block text-5xl md:text-7xl">HI, I'M SHAKTHI</span>
-            <span className="block text-5xl md:text-7xl">SRI</span>
+            <span className="block text-4xl sm:text-5xl md:text-7xl">HI, I'M SHAKTHI</span>
+            <span className="block text-4xl sm:text-5xl md:text-7xl">SRI</span>
           </h1>
           <p
-            className="text-[#8b5cf6] text-4xl md:text-5xl"
+            className="text-[#8b5cf6] text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
             style={{ 
               fontFamily: "'Caveat', cursive",
               fontWeight: "600"
             }}
           >
-            a Software Developer..
+            a Software Developer
           </p>
 
-          <div className="flex gap-0 pt-6">
+          <div className="flex gap-0 pt-4 sm:pt-6">
             <div>
-              <div className="text-white text-lg italic">"Easwari Engineering College Final Year Student !"</div>
+              <div className="text-white text-base sm:text-lg">Easwari Engineering College Final Year Student</div>
             </div>
           </div>
 
           {/* Download CV Button */}
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
             <button 
               onClick={handleDownloadCV}
-              className="group bg-black/30 backdrop-blur-sm hover:bg-black/40 px-8 py-4 rounded-lg font-semibold transition-all duration-300 border border-[#8b5cf6]/30 hover:border-[#8b5cf6] transform hover:scale-105 hover:shadow-2xl hover:shadow-[#8b5cf6]/20 flex items-center justify-center gap-3 relative overflow-hidden glow-border-button text-white"
+              className="group bg-black/30 backdrop-blur-sm hover:bg-black/40 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 border border-[#8b5cf6]/30 hover:border-[#8b5cf6] transform hover:scale-105 hover:shadow-2xl hover:shadow-[#8b5cf6]/20 flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden glow-border-button text-white w-full sm:w-auto"
             >
-              <Download size={20} className="relative z-10 group-hover:animate-bounce" />
-              <span className="relative z-10 text-base">Download CV</span>
+              <Download size={18} className="relative z-10 group-hover:animate-bounce sm:w-5 sm:h-5" />
+              <span className="relative z-10 text-sm sm:text-base">Download CV</span>
             </button>
           </div>
         </div>
 
         <div
-          className={`relative transition-all duration-1000 delay-300 ${
+          className={`relative transition-all duration-1000 delay-300 order-first lg:order-last ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}
         >
-          <div className="relative">
+          <div className="relative max-w-md mx-auto lg:max-w-lg">
             {/* Main photo frame */}
-            <div className="w-full max-w-lg mx-auto rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl transform rotate-0">
+            <div className="w-full aspect-square rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl transform rotate-0">
               <img
-                src="\shakthi.jpg"
+                src="\photo.jpg"
                 alt="Profile"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Good Vibes Badge - using badge.jpg */}
-            <div className="absolute -bottom-6 -left-6 z-10 transform -rotate-12 animate-pulse-slow">
+            {/* Good Vibes Badge */}
+            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 z-10 transform -rotate-12 animate-pulse-slow">
               <img
                 src="/badge.png"
                 alt="Good Vibes"
-                className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl"
               />
             </div>
           </div>
@@ -137,30 +137,31 @@ export default function Hero() {
 
       <button
         onClick={scrollToAbout}
-        className="absolute bottom-12 right-12 w-16 h-16 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-bounce"
+        className="absolute bottom-6 right-6 sm:bottom-12 sm:right-12 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-bounce"
       >
-        <ArrowDown className="w-6 h-6" />
+        <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       {/* PDF Preview Modal */}
       {showPdfPreview && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-sm">
-          <div className="relative w-full h-full max-w-6xl mx-4 my-8 flex flex-col">
-            {/* Top Bar with Download and Close */}
-            <div className="flex items-center justify-between mb-4 bg-black/50 backdrop-blur-md px-6 py-4 rounded-t-2xl border border-[#8b5cf6]/30">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+          <div className="relative w-full h-full max-w-6xl flex flex-col">
+            {/* Top Bar */}
+            <div className="flex items-center justify-between mb-2 sm:mb-4 bg-black/50 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl border border-[#8b5cf6]/30">
               <button
                 onClick={downloadPdf}
-                className="flex items-center gap-2 px-6 py-3 bg-[#8b5cf6] hover:bg-[#7c3aed] text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#8b5cf6]/50"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[#8b5cf6] hover:bg-[#7c3aed] text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#8b5cf6]/50 text-sm sm:text-base"
               >
-                <Download size={20} />
-                <span className="font-semibold">Download Resume</span>
+                <Download size={16} className="sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline font-semibold">Download Resume</span>
+                <span className="sm:hidden font-semibold">Download</span>
               </button>
 
               <button
                 onClick={closePdfPreview}
-                className="p-3 bg-red-500/20 hover:bg-red-500/40 text-red-400 hover:text-white rounded-lg transition-all duration-300 border border-red-500/30 hover:border-red-500"
+                className="p-2 sm:p-3 bg-red-500/20 hover:bg-red-500/40 text-red-400 hover:text-white rounded-lg transition-all duration-300 border border-red-500/30 hover:border-red-500"
               >
-                <X size={24} />
+                <X size={20} className="sm:w-6 sm:h-6" />
               </button>
             </div>
 
